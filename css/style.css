@@ -35,6 +35,9 @@ nav {
   align-items: center;
   padding: 0 3rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  background-color: #fff;
 }
 nav .logo {
   font-family: "Lobster", cursive;
@@ -53,10 +56,11 @@ nav .links li a {
   margin-left: 1.5rem;
   text-decoration: none;
   color: #777;
-  padding-right: 5px;
 }
 nav .links li a:hover {
   color: var(--mainCol);
+
+  border-bottom: 1px solid var(--mainCol);
 }
 nav .links i {
   color: var(--mainCol);
@@ -68,7 +72,7 @@ nav .links i {
 .home {
   background-image: url("https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: cover;
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -141,7 +145,6 @@ button {
 .about .cicle p {
   padding: 7px 0;
   font-size: 12px;
-  color: #888;
 }
 
 .about .abt-text {
@@ -181,6 +184,7 @@ button {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding-bottom: 2rem;
 }
 
 .products .pro-card .image {
@@ -206,6 +210,33 @@ button {
 }
 .products .card-info p {
   padding: 2rem 0;
+}
+
+/* start gallery */
+.gallery .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  display: none;
+}
+.gallery .container .view {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.gallery .container .view img {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 769px) {
+  .gallery .container {
+    flex-direction: column;
+  }
+  .gallery .container .view {
+    width: 100%;
+  }
 }
 
 /* end products */
@@ -285,11 +316,55 @@ button {
   text-align: center;
   font-size: 14px;
 }
+
 /* end sub */
+/* start contact */
+.contact {
+  text-align: center;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact .contact-details h3 {
+  color: var(--dark);
+  font-family: "Lobster", cursive;
+
+  font-size: 22px;
+}
+.contact .contact-details p {
+  line-height: 1.8;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.contact .contact-info {
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.contact .contact-info .info {
+  padding: 1.5rem;
+  color: #aaa;
+}
+.contact .contact-info .info i {
+  font-size: 30px;
+  padding-bottom: 0.5rem;
+}
+.contact .contact-info .info h4 {
+  padding-bottom: 0.8rem;
+  color: #111;
+  text-transform: uppercase;
+}
+/* end contact */
+
+/* start footer */
 footer {
   text-align: center;
   color: #777;
   padding: 1.5rem 0;
+  background-color: var(--light);
 }
 
 footer span {
