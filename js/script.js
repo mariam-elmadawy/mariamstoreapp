@@ -1,11 +1,29 @@
-const moreBtn = document.querySelector('.more');
-const view = document.querySelector('.gallery .container')
-moreBtn.addEventListener('click', () => {
-    view.style.display = 'flex'
+//navbar scroll and active effect
+const navbar = document.querySelector('nav');
+let section = document.querySelectorAll('section');
+let links = document.querySelectorAll('nav a');
 
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('sticky', window.scrollY > 0);
+
+    section.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop;
+        let height = sec.offsetHeight - 180;
+        let id = sec.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+            links.forEach(link => {
+                link.classList.remove('active');
+                document.querySelector('nav a[href*=' + id + ']').classList.add('active');
+            })
+        }
+    })
 })
 
 
+
+// pop up on subscribe section
 const subContainer = document.querySelector('.sub-card');
 const subBtn = document.getElementById('sub-btn');
 
@@ -76,3 +94,13 @@ window.onload = function () {
     }
     scrollEffect()
 }
+
+
+
+// add more images
+const moreBtn = document.querySelector('.more');
+const view = document.querySelector('.gallery .container')
+moreBtn.addEventListener('click', () => {
+    view.style.display = 'flex'
+
+})

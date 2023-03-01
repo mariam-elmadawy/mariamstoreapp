@@ -34,10 +34,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  position: static;
+
+  position: fixed;
   top: 0;
+  left: 0;
+
+  z-index: 1000;
+}
+
+nav.sticky {
   background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 nav .logo {
   font-family: "Lobster", cursive;
@@ -55,12 +62,13 @@ nav .links li a {
   text-transform: uppercase;
   margin-left: 1.5rem;
   text-decoration: none;
-  color: #777;
+  color: var(--dark);
 }
-nav .links li a:hover {
+nav .links li a:hover,
+nav .links li a.active {
   color: var(--mainCol);
-
   border-bottom: 1px solid var(--mainCol);
+  padding-bottom: 2px;
 }
 nav .links i {
   color: var(--mainCol);
@@ -273,9 +281,9 @@ button {
 /* end promo */
 /* start sub */
 .sub {
-  background-color: var(--light);
   padding: 3rem 0;
   position: relative;
+  margin: 2rem 0;
 }
 .sub-card {
   display: flex;
@@ -290,7 +298,7 @@ button {
 .popup.active {
   visibility: hidden;
   opacity: 0;
-  top: 20%;
+  top: 30%;
 }
 
 .popup {
@@ -395,13 +403,12 @@ button {
 .contact {
   text-align: center;
   padding: 3rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--light);
 }
 
 .contact .contact-details h3 {
   color: var(--dark);
   font-family: "Lobster", cursive;
-
   font-size: 22px;
 }
 .contact .contact-details p {
@@ -415,6 +422,7 @@ button {
   gap: 20px;
   justify-content: space-evenly;
   align-items: center;
+  height: 30vh;
 }
 
 .contact .contact-info .info {
@@ -438,11 +446,9 @@ footer {
   color: #777;
   padding: 1.5rem 0;
   background-color: var(--light);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 footer span {
   color: var(--dark);
-}
-
-.popup.active {
 }
