@@ -164,21 +164,30 @@
     <!-- start sub -->
     <section class="sub">
       <div class="container">
-        <div class="sub-card">
+        <div class="sub-card  ">
           <div class="cicle">
             <i class="fa-solid fa-paper-plane"></i>
           </div>
           <h4>subscribe to get the latest news</h4>
           <h1>revo's store latest news and updates</h1>
+            <button id='sub-btn' type="submit">subscribe</button>
+          </form>
+        </div>
+        <div class="popup active">
+          <h2>Subscribe to watch more...</h2>
           <form action="">
+            <label for="email">E-mail</label>
             <input
               type="email"
-              name="mail"
-              id="mail"
-              placeholder="enter your email"
+              name="email"
+              id="email"
+              placeholder="Enter your E-mail"
+              required
             />
-            <button type="submit">subscribe</button>
+            <button class="join" type="submit">Join</button>
           </form>
+
+          <i class="fa-solid fa-xmark x"></i>
         </div>
       </div>
     </section>
