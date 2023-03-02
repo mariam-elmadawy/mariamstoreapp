@@ -34,11 +34,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
-
   position: fixed;
   top: 0;
   left: 0;
-
   z-index: 1000;
 }
 
@@ -70,11 +68,16 @@ nav .links li a.active {
   border-bottom: 1px solid var(--mainCol);
   padding-bottom: 2px;
 }
-nav .links i {
+nav .fa-cart-shopping {
   color: var(--mainCol);
-  margin: 0 1rem;
+  padding-left: 5px;
+  border-left: 1px solid #777;
 }
 
+nav .menu {
+  display: none;
+  padding-left: 1rem;
+}
 /* start home */
 
 .home {
@@ -180,7 +183,13 @@ button {
   background-color: var(--light);
   padding: 3rem 0;
 }
-
+.products .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 1rem;
+}
 .products h3 {
   text-align: center;
   font-family: "Lobster", cursive;
@@ -188,32 +197,25 @@ button {
   padding-bottom: 3rem;
 }
 .products .pro-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 2rem;
+  width: 1200px;
 }
 
-.products .pro-card .image {
-  width: 50%;
-}
 .products .pro-card img {
   width: 100%;
   height: 400px;
 }
-.products .pro-card .card-info {
+.products .card-info {
+  width: 100%;
   margin: 20px;
-  width: 50%;
   color: var(--dark);
 }
 
-.products .pro-card .card-info h2 {
+.products .card-info h2 {
   color: var(--dark);
 
   border-bottom: 2px solid var(--mainCol);
 }
-.products .pro-card .card-info h2 i {
+.products .card-info h2 i {
   color: var(--mainCol);
 }
 .products .card-info p {
@@ -451,4 +453,186 @@ footer {
 
 footer span {
   color: var(--dark);
+}
+
+/* start media query */
+@media (max-width: 480px) {
+  nav .logo h1 {
+    font-size: 12px;
+  }
+  nav {
+    z-index: 10001;
+    height: 50px;
+    background-color: #fff;
+  }
+
+  nav .menu {
+    font-size: 18px;
+  }
+  nav .links {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #111;
+    background-color: #fff;
+    display: none;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav .links li a:hover,
+  nav .links li a.active {
+    color: var(--mainCol);
+    border-bottom: 1px solid var(--mainCol);
+  }
+
+  nav .links ul {
+    display: block;
+    margin: 2rem auto;
+  }
+  nav .links ul li {
+    padding: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  nav .links.active {
+    top: 50px;
+    display: block;
+  }
+  nav .menu-nav {
+    display: inline-block;
+  }
+
+  .home {
+    text-align: center;
+  }
+
+  .about .abt-cards,
+  .abt-text {
+    flex-wrap: wrap;
+  }
+  .about .abt-cards .cicle {
+    margin: 1rem;
+  }
+
+  .about .container .pro-card {
+    flex-wrap: wrap;
+  }
+  .products .container {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .products .container .pro-card {
+    width: 100%;
+  }
+
+  .products .container .card-info {
+    width: 100%;
+  }
+  .promo {
+    margin: 2rem 0;
+  }
+  .promo-card {
+    flex-wrap: wrap;
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+  .promo-card .promo-info p {
+    padding-bottom: 1rem;
+  }
+  .promo-btn button {
+    background-color: var(--mainCol);
+    color: var(--light);
+  }
+  .contact {
+    height: 90vh;
+  }
+  .contact .contact-info {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .sub-card {
+    text-align: center;
+  }
+  .popup {
+    width: 80%;
+  }
+
+  .popup form input {
+    width: 200px;
+  }
+  .popup .join {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav .logo h1 {
+    font-size: 18px;
+  }
+  nav {
+    z-index: 10001;
+    height: 50px;
+    background-color: #fff;
+  }
+
+  nav .menu {
+    display: inline-block;
+    font-size: 18px;
+  }
+  nav .links {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #111;
+    background-color: #fff;
+    display: none;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav .links li a:hover,
+  nav .links li a.active {
+    color: var(--mainCol);
+    border-bottom: 1px solid var(--mainCol);
+  }
+
+  nav .links ul {
+    display: block;
+    margin: 2rem auto;
+  }
+  nav .links ul li {
+    padding: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  nav .links.active {
+    top: 50px;
+    display: block;
+  }
+
+  .about .abt-cards .cicle {
+    margin: 1rem;
+  }
+
+  .about .container .pro-card {
+    flex-wrap: wrap;
+  }
+  .products .container {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .products .container .pro-card {
+    width: 100%;
+  }
+
+  .products .container .card-info {
+    width: 100%;
+  }
+  .contact .contact-info {
+    padding: 1rem;
+  }
 }

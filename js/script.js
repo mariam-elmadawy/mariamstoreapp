@@ -1,7 +1,8 @@
 //navbar scroll and active effect
 const navbar = document.querySelector('nav');
 let section = document.querySelectorAll('section');
-let links = document.querySelectorAll('nav a');
+let links = document.querySelectorAll('nav li a');
+
 
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('sticky', window.scrollY > 0);
@@ -9,7 +10,7 @@ window.addEventListener('scroll', () => {
     section.forEach(sec => {
         let top = window.scrollY;
         let offset = sec.offsetTop;
-        let height = sec.offsetHeight - 180;
+        let height = sec.offsetHeight - 100;
         let id = sec.getAttribute('id');
 
         if (top >= offset && top < offset + height) {
@@ -21,7 +22,16 @@ window.addEventListener('scroll', () => {
     })
 })
 
+const menu = document.querySelector('.menu');
+const linksMenu = document.querySelector('nav .links')
 
+
+menu.addEventListener('click', () => {
+    menu.classList.toggle('fa-xmark');
+    linksMenu.classList.toggle('active')
+
+
+})
 
 // pop up on subscribe section
 const subContainer = document.querySelector('.sub-card');
@@ -46,7 +56,7 @@ join.addEventListener('click', () => {
     popup.classList.add('active')
 })
 
-
+// scroll effect
 window.onload = function () {
     const infoCard = document.querySelector('.contact-info');
     const promoCard = document.querySelector('.promo-info');
@@ -56,9 +66,8 @@ window.onload = function () {
     window.addEventListener('scroll', scrollEffect)
 
     function scrollEffect() {
-        console.log(window.scrollY);
+        // console.log(window.scrollY);
         if (window.scrollY >= 2000) {
-
             infoCard.style.opacity = '1';
             infoCard.style.transform = 'translateX(0px)';
             infoCard.style.transition = '1s ease-in-out'
@@ -89,8 +98,6 @@ window.onload = function () {
             aboutCard.style.opacity = '0';
             aboutCard.style.transform = 'translateX(-50px)';
         }
-
-
     }
     scrollEffect()
 }
@@ -98,9 +105,9 @@ window.onload = function () {
 
 
 // add more images
-const moreBtn = document.querySelector('.more');
-const view = document.querySelector('.gallery .container')
-moreBtn.addEventListener('click', () => {
-    view.style.display = 'flex'
+// const moreBtn = document.querySelector('.more');
+// const view = document.querySelector('.gallery .container')
+// moreBtn.addEventListener('click', () => {
+//     view.style.display = 'flex'
 
-})
+// })
