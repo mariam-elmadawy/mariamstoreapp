@@ -5,8 +5,6 @@ let links = document.querySelectorAll('nav li a');
 
 
 window.addEventListener('scroll', () => {
-    navbar.classList.toggle('sticky', window.scrollY > 0);
-
     section.forEach(sec => {
         let top = window.scrollY;
         let offset = sec.offsetTop;
@@ -25,13 +23,29 @@ window.addEventListener('scroll', () => {
 const menu = document.querySelector('.menu');
 const linksMenu = document.querySelector('nav .links')
 
-
 menu.addEventListener('click', () => {
     menu.classList.toggle('fa-xmark');
     linksMenu.classList.toggle('active')
 
+});
+
+//cart overlay
+const cart = document.querySelector('nav i.cart');
+const xcart = document.querySelector('.cart-overlay .header i')
+const cartOverlay = document.querySelector('.cart-overlay');
+const bodyOverlay = document.getElementById('overlay')
+
+cart.addEventListener('click', () => {
+    cartOverlay.classList.toggle('active')
+    bodyOverlay.classList.toggle('active')
+})
+xcart.addEventListener('click', () => {
+    cartOverlay.classList.remove('active');
+    bodyOverlay.classList.remove('active')
 
 })
+
+
 
 // pop up on subscribe section
 const subContainer = document.querySelector('.sub-card');

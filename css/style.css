@@ -15,8 +15,8 @@
   outline: none;
   border: none;
   text-transform: capitalize;
-  transition: all 0.5s linear;
   box-sizing: border-box;
+  transition: all 0.5s linear;
 }
 
 html {
@@ -37,13 +37,11 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-}
-
-nav.sticky {
+  z-index: 1;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 nav .logo {
   font-family: "Lobster", cursive;
   color: var(--secCol);
@@ -58,9 +56,12 @@ nav .links ul {
 
 nav .links li a {
   text-transform: uppercase;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
   text-decoration: none;
   color: var(--dark);
+}
+nav .links li a:last-child {
+  margin-right: 1rem;
 }
 nav .links li a:hover,
 nav .links li a.active {
@@ -72,6 +73,55 @@ nav .fa-cart-shopping {
   color: var(--mainCol);
   padding-left: 5px;
   border-left: 1px solid #777;
+  cursor: pointer;
+}
+
+.cart-overlay {
+  height: 100vh;
+  width: 50%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: #111;
+  background-color: #fff;
+  text-align: center;
+}
+.cart-overlay .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.cart-overlay .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.cart-overlay.active {
+  z-index: 1000;
+  right: 100px;
+}
+.cart-overlay .fa-xmark {
+  cursor: pointer;
+  color: var(--mainCol);
+  font-size: 22px;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+#overlay.active {
+  display: block;
 }
 
 nav .menu {
@@ -114,6 +164,11 @@ button {
   padding: 10px;
   text-transform: uppercase;
   cursor: pointer;
+}
+button a {
+  text-decoration: none;
+  color: var(--mainCol);
+  text-transform: uppercase;
 }
 
 /* end home */
@@ -223,7 +278,7 @@ button {
 }
 
 /* start gallery */
-.gallery .container {
+/* .gallery .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -238,16 +293,16 @@ button {
 .gallery .container .view img {
   width: 100%;
   padding-bottom: 1rem;
-}
+} */
 
-@media screen and (max-width: 769px) {
-  .gallery .container {
+/* @media screen and (max-width: 769px) { */
+/* .gallery .container {
     flex-direction: column;
   }
   .gallery .container .view {
     width: 100%;
   }
-}
+} */
 
 /* end products */
 /* start promo */
@@ -280,6 +335,9 @@ button {
   background-color: var(--mainCol);
   color: var(--light);
 }
+.promo a:hover {
+  color: var(--light);
+}
 /* end promo */
 /* start sub */
 .sub {
@@ -295,7 +353,7 @@ button {
 }
 
 .sub-card.active {
-  filter: blur(50px) brightness(0);
+  filter: blur(100px) brightness(0);
 }
 .popup.active {
   visibility: hidden;
@@ -461,11 +519,8 @@ footer span {
     font-size: 12px;
   }
   nav {
-    z-index: 10001;
     height: 50px;
-    background-color: #fff;
   }
-
   nav .menu {
     font-size: 18px;
   }
@@ -532,6 +587,7 @@ footer span {
   }
   .promo {
     margin: 2rem 0;
+    height: 40vh;
   }
   .promo-card {
     flex-wrap: wrap;
@@ -543,6 +599,9 @@ footer span {
   }
   .promo-btn button {
     background-color: var(--mainCol);
+    color: var(--light);
+  }
+  .promo-btn button a {
     color: var(--light);
   }
   .contact {
@@ -573,11 +632,11 @@ footer span {
     font-size: 18px;
   }
   nav {
-    z-index: 10001;
     height: 50px;
-    background-color: #fff;
   }
-
+  .cart-overlay {
+    width: 100%;
+  }
   nav .menu {
     display: inline-block;
     font-size: 18px;
