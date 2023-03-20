@@ -75,13 +75,13 @@ window.onload = function () {
     const infoCard = document.querySelector('.contact-info');
     const promoCard = document.querySelector('.promo-info');
     const aboutCard = document.querySelector('.abt-cards');
-    const cardInfo = document.querySelector('.card-info')
+    const productHead = document.querySelector('.head')
 
     window.addEventListener('scroll', scrollEffect)
 
     function scrollEffect() {
         // console.log(window.scrollY);
-        if (window.scrollY >= 2000) {
+        if (window.scrollY >= 3000) {
             infoCard.style.opacity = '1';
             infoCard.style.transform = 'translateX(0px)';
             infoCard.style.transition = '1s ease-in-out'
@@ -97,14 +97,13 @@ window.onload = function () {
             promoCard.style.opacity = '0';
             promoCard.style.transform = 'translateX(-50px)';
         } if (window.scrollY >= 1100) {
-            cardInfo.style.opacity = '1';
-            cardInfo.style.transform = 'translateX(0px)';
-            cardInfo.style.transition = '1s ease-in'
+            productHead.style.opacity = '1';
+            productHead.style.transform = 'translateX(0px)';
+            productHead.style.transition = '1s ease-in'
         } else {
-            cardInfo.style.opacity = '0';
-            cardInfo.style.transform = 'translateX(50px)';
+            productHead.style.opacity = '0';
+            productHead.style.transform = 'translateX(50px)';
         } if (window.scrollY >= 500) {
-
             aboutCard.style.opacity = '1';
             aboutCard.style.transform = 'translateX(0px)';
             aboutCard.style.transition = '1s linear'
@@ -125,3 +124,32 @@ window.onload = function () {
 //     view.style.display = 'flex'
 
 // })
+
+
+// fetch data from the api 
+const productsArea = document.querySelector('.products')
+async function products() {
+    try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        const data = await response.json();
+        return data
+    } catch (error) {
+        error
+    }
+}
+
+products().then((data) => {
+    let cardsHtml = ''
+    data.map((value) => {
+        cardsHtml += `
+        <div class="product">
+            <img src="${value.image}" alt="image" />
+            <h4 class="product-title">${value.title}</h4>
+            <p>Price: ${value.price} $</p>
+        </div>
+        `
+    })
+    productsArea.innerHTML = cardsHtml
+})
+
+

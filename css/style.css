@@ -253,11 +253,22 @@ button a {
 }
 .products .pro-card {
   width: 1200px;
+  position: relative;
+  overflow: hidden;
+}
+.products .box {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 400px;
+  height: 150px;
+  background: rgba(1, 1, 1, 0.3);
 }
 
 .products .pro-card img {
   width: 100%;
   height: 400px;
+  z-index: 2;
 }
 .products .card-info {
   width: 100%;
@@ -694,4 +705,56 @@ footer span {
   .contact .contact-info {
     padding: 1rem;
   }
+}
+
+/* shop style */
+.products-con {
+  padding: 0 3rem;
+}
+
+.products-con .head {
+  text-align: center;
+  padding: 1rem 0;
+}
+.products-con .head p {
+  color: var(--mainCol);
+}
+.products-con .head h2 {
+  color: var(--dark);
+  font-size: 2rem;
+  margin: 1rem;
+  line-height: 1.8;
+}
+.products-con .products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: #fff;
+}
+.products-con .product {
+  width: 20%;
+  border-bottom: 1px solid #eee;
+  height: 320px;
+}
+.products-con .product:hover {
+  border-bottom: 1px solid var(--mainCol);
+}
+.products-con .product img {
+  width: 100%;
+  max-height: 150px;
+}
+.products-con .product img:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+}
+.products-con .product h4 {
+  color: #777;
+  padding: 8px 0;
+}
+.products-con .product p {
+  line-height: 1.6;
+  color: var(--dark);
+  padding: 8px 0;
 }
